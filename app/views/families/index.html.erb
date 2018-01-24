@@ -1,0 +1,37 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Families</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Parent1 name</th>
+      <th>Parent1 phone</th>
+      <th>Parent2 name</th>
+      <th>Parent2 phone</th>
+      <th>Notes</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @families.each do |family| %>
+      <tr>
+        <td><%= family.parent1_name %></td>
+        <td><%= family.parent1_phone %></td>
+        <td><%= family.parent2_name %></td>
+        <td><%= family.parent2_phone %></td>
+        <td><%= family.notes %></td>
+        <td><%= link_to fa_icon('eye'), family %></td> 
+        <td><%= link_to fa_icon('pencil'), edit_family_path(family) %></td>
+        <td><%= link_to fa_icon('trash'), family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Family', new_family_path %>
+</div>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent1 name:</strong>
+  <%= @family.parent1_name %>
+</p>
+
+<p>
+  <strong>Parent1 phone:</strong>
+  <%= @family.parent1_phone %>
+</p>
+
+<p>
+  <strong>Parent2 name:</strong>
+  <%= @family.parent2_name %>
+</p>
+
+<p>
+  <strong>Parent2 phone:</strong>
+  <%= @family.parent2_phone %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @family.notes %>
+</p>
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>
+
+<%= render 'kids/form', kid: @kid %>
