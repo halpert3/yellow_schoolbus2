@@ -6,18 +6,21 @@ class SchoolRidesController < ApplicationController
 
   def create
     @school_ride = SchoolRide.new(school_ride_params)    
-
-    if @kid.save
-      format.html { redirect_to family_path(id: @kid.family_id), notice: 'Kid was successfully created.' }
-      format.json { render :show, status: :created, location: @kid }
+    redirect_to family_path
+    if @school_ride.save
+      flash[:success] = "Saved!"
+    else
+      flash[:alert] = "Not saved!"
     end
-  end
+  
+end
 
 
-  private
+private
 
-  def school_ride_params
-    params.require(:school_ride).permit(:check_in, :kid_id, :test)
-  end
+def school_ride_params
+  params.require(:school_ride).permit(:test)
+end
 
 end
+ 
