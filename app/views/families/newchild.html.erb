@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <span class="h2 pb-3"><%= "Add a child to the #{@family.fname} Family" %></span><br><br>
+          <%= render 'kids/form', kid: @kid %>
+    </div> <! -- main column -->
+  </div> <!-- row -->
+</div>

@@ -1,31 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+    <div class="col-2"></div>
+    <div class="col-4">
+      <span class="h2 pb-3"><%= "The #{@family.fname} Family" %></span><br><br>
+    </div>
+    <div class="col-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
 
-<p>
-  <strong>Parent1 name:</strong>
-  <%= @family.parent1_name %>
-</p>
+      <p>
+        <strong>First Parent's Name</strong><br>
+        <%= @family.parent1_name %><br>
+      </p>
 
-<p>
-  <strong>Parent1 phone:</strong>
-  <%= @family.parent1_phone %>
-</p>
+      <p>
+        <strong>First Parent's Phone</strong><br>
+        <%= number_to_phone(@family.parent1_phone, :area_code => true) %><br>
+      </p>
 
-<p>
-  <strong>Parent2 name:</strong>
-  <%= @family.parent2_name %>
-</p>
+      <p>
+        <strong>Second Parent's Name</strong><br>
+        <%= @family.parent2_name %><br>
+      </p>
 
-<p>
-  <strong>Parent2 phone:</strong>
-  <%= @family.parent2_phone %>
-</p>
+      <p>
+        <strong>Second Parent's Phone</strong><br>
+        <%= number_to_phone(@family.parent2_phone, :area_code => true) %><br>
+      </p>
+    </div> <!-- Second column -->
+    <div class="col-6">
+      <p><strong>Kids</strong><br>
+        <% @family.kids.each do |kid| %>
+        <span><%= kid.name %></span><br>
+        <% end %>
+      </p>
+      <!--      < %= render 'kids/form', kid: @kid %>-->
+    </div> <!-- Third column -->
+  </div> <!-- row -->
+</div> <!-- container --> 
 
-<p>
-  <strong>Notes:</strong>
-  <%= @family.notes %>
-</p>
-
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
-
-<%= render 'kids/form', kid: @kid %>

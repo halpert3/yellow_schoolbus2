@@ -10,6 +10,8 @@
   </ul>
 </div>
 <% end %>
+
+
 <br>
 <div class="row">
   <div class="col-2">
@@ -26,7 +28,7 @@
   </div>
   <div class="col-5">
     <%= form.date_select :birthdate, id: :kid_birthdate, start_year: 2000, end_year: 2013,
-order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' } %>
+        order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' } %>
   </div>
 </div><!-- second row -->
 <br>
@@ -37,16 +39,14 @@ order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year'
   <div class="col-5">
     <%= form.text_field :grade, id: :kid_grade %>
   </div>
-
-
 </div><!-- third row -->
 <br>
 <div class="field">
-  <%= form.hidden_field :family_id, value: @family.id %>
+  <%= form.hidden_field :family_id %> <!-- value: @family.id %> -->
 </div>
 
 <div class="actions">
-  <%= form.button :"Add Child", class: "btn btn-medium btn-info" %>
+  <%= form.button :"Update Child", class: "btn btn-medium btn-info" %>
 </div>
 <% end %>
 

@@ -1,24 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+    <div class="col-2"></div>
+    <div class="col-4">
+      <span class="h2 pb-3"><%= "#{@kid.name}" %></span><br><br>
+    </div>
+    <div class="col-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <p>
+        <strong>Name:</strong>
+        <%= @kid.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @kid.name %>
-</p>
+      <p>
+        <strong>Birthdate:</strong>
+        <%= @kid.birthdate.strftime("%B %-d, %Y") %>
+      </p>
 
-<p>
-  <strong>Birthdate:</strong>
-  <%= @kid.birthdate %>
-</p>
+      <p>
+        <strong>Grade:</strong>
+        <%= @kid.grade %>
+      </p>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @kid.grade %>
-</p>
+      <p>
+        <strong>Family:</strong>
+        <%= @kid.family.fname %> 
+      </p>
 
-<p>
-  <strong>Family:</strong>
-  <%= @kid.family_id %>
-</p>
+      <p>
+        <strong>Check in to school:</strong>
+        <% @kid.school_rides.each do |ride|%>
+        <%= ride.created_at.strftime("%l:%M %P, %B %-d, %Y") %>
+        <% end %>
+      </p>
+      <p>
+      
+        <%= render 'school_rides/formtoschool'%>
 
-<%= link_to 'Edit', edit_kid_path(@kid) %> |
-<%= link_to 'Back', kids_path %>
+<!--, family: @family %>-->
+      
+      </p>
+
+
+      
+    </div> <!-- main column (4) -->
+  </div> <!-- row -->
+</div> <!-- container --> 

@@ -1,6 +1,28 @@
-<h1>Editing Family</h1>
 
-<%= render 'form', family: @family %>
 
-<%= link_to 'Show', @family %> |
-<%= link_to 'Back', families_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <span class="h2 pb-3"><%= "Edit the #{@family.fname} Family" %></span><br><br>
+    </div>
+    <div class="col-6"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <%= render 'form', family: @family %>
+    </div>
+    <div class="col-6">
+      <p><u>Edit Kids</u><br>
+        <% @family.kids.each do |kid| %>
+        <span><%= "#{kid.name} " %><%= link_to fa_icon('pencil'), edit_kid_path(kid) %></span><br>
+        <% end %>
+      </p>
+    </div>
+
+  </div>
+
+</div>

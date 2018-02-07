@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Kids</h1>
+  <h1>Kids</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Birthdate</th>
-      <th>Grade</th>
-      <th>Family</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Name</th>
+        <th class="text-center">Age</th>
+        <th>Birthdate</th>
+        <th class="text-center">Grade</th>
+        <th>First Parent</th>
+        <th>Second Parent</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @kids.each do |kid| %>
+    <tbody>
+      <% @kids.each do |kid| %>
       <tr>
         <td><%= kid.name %></td>
-        <td><%= kid.birthdate %></td>
-        <td><%= kid.grade %></td>
+        <td class="text-center"><%= ((Date.today - kid.birthdate)/365).to_i %></td>
+        <td><%= kid.birthdate.strftime("%B %-d, %Y") %></td>
+        <td class="text-center"><%= kid.grade %></td>
         <td><%= kid.family.parent1_name %></td>
-        <td><%= link_to 'Show', kid %></td>
-        <td><%= link_to 'Edit', edit_kid_path(kid) %></td>
-        <td><%= link_to 'Destroy', kid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= kid.family.parent2_name %></td>
+        <td><%= link_to fa_icon('eye'), kid %></td>
+        <td><%= link_to fa_icon('pencil'), edit_kid_path(kid) %></td>
+        <td><%= link_to fa_icon('trash'), kid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Kid', new_kid_path %>
+  <br>
+</div>
+
+

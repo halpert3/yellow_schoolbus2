@@ -1,6 +1,7 @@
 class KidsController < ApplicationController
   before_action :set_kid, only: [:show, :edit, :update, :destroy]
 
+
   # GET /kids
   # GET /kids.json
   def index
@@ -10,6 +11,8 @@ class KidsController < ApplicationController
   # GET /kids/1
   # GET /kids/1.json
   def show
+    @family = Family.all
+#    @school_ride = SchoolRide.new
   end
 
   # GET /kids/new
@@ -35,6 +38,8 @@ class KidsController < ApplicationController
         format.json { render json: @kid.errors, status: :unprocessable_entity }
       end
     end
+    
+
   end
 
   # PATCH/PUT /kids/1
@@ -62,13 +67,15 @@ class KidsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kid
-      @kid = Kid.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kid
+    @kid = Kid.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def kid_params
-      params.require(:kid).permit(:name, :birthdate, :grade, :family_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def kid_params
+    params.require(:kid).permit(:name, :birthdate, :grade, :family_id)
+  end  
+
+
 end

@@ -1,6 +1,19 @@
-<h1>Editing Kid</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <!-- insert kid name  -->
+            <span class="h2 pb-3"><%= "Edit #{@kid.name}" %></span><br><br>
+    </div>
 
-<%= render 'form', kid: @kid %>
+    <div class="col-6"></div>
+  </div> <!-- end first row -->
 
-<%= link_to 'Show', @kid %> |
-<%= link_to 'Back', kids_path %>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-9">
+      <%= render 'formedit', kid: @kid %>
+    </div>
+    <div class="col-1"></div>
+  </div> <!-- end second row -->
+</div>

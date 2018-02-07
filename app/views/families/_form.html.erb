@@ -12,31 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :parent1_name %>
-    <%= form.text_field :parent1_name, id: :family_parent1_name %>
+    <%= form.label "Family Name" %><br>
+    <%= form.text_field :fname, id: :family_fname %><br>
   </div>
-
+<br><div class="field">
+    <%= form.label "First Parent's Name" %><br>
+    <%= form.text_field :parent1_name, id: :family_parent1_name %><br>
+  </div>
+<br>
   <div class="field">
-    <%= form.label :parent1_phone %>
-    <%= form.number_field :parent1_phone, id: :family_parent1_phone %>
+    <%= form.label "First Parent's Phone Number" %><br>
+    <%= form.text_field :parent1_phone, id: :family_parent1_phone, placeholder: 'xxx-xxx-xxxx', value: number_to_phone(@family.parent1_phone, area_code: true) %><br>
   </div>
-
+<br>
   <div class="field">
-    <%= form.label :parent2_name %>
-    <%= form.text_field :parent2_name, id: :family_parent2_name %>
+    <%= form.label "Second Parent's Name" %> <br>
+    <%= form.text_field :parent2_name, id: :family_parent2_name %><br>
   </div>
-
+<br>
   <div class="field">
-    <%= form.label :parent2_phone %>
-    <%= form.number_field :parent2_phone, id: :family_parent2_phone %>
+    <%= form.label "Second Parent's Phone Number" %><br>
+    <%= form.telephone_field :parent2_phone, id: :family_parent2_phone, placeholder: 'xxx-xxx-xxxx', value: number_to_phone(@family.parent1_phone, area_code: true) %><br>
   </div>
+<br>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, id: :family_notes %>
-  </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.button :Submit, class: "btn btn-medium btn-info" %>
   </div>
 <% end %>
+

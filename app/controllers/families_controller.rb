@@ -1,16 +1,21 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:show, :edit, :update, :destroy, :newchild]
 
-  # GET /families
-  # GET /families.json
+#   GET /families
+#   GET /families.json
+  
   def index
-    @families = Family.all
+    @families = Family.all.order(:fname)
   end
 
   # GET /families/1
   # GET /families/1.json
   def show
-    @kid = Kid.new
+    @kid = Kid.all 
+  end
+  
+  def newchild
+    @kid = Kid.new # Allows the kid form to work (rendered) in the family view
   end
 
   # GET /families/new
@@ -63,13 +68,13 @@ class FamiliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_family
-      @family = Family.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_family
+    @family = Family.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def family_params
-      params.require(:family).permit(:parent1_name, :parent1_phone, :parent2_name, :parent2_phone, :notes)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def family_params
+    params.require(:family).permit(:parent1_name, :parent1_phone, :parent2_name, :parent2_phone, :fname)
+  end
 end
