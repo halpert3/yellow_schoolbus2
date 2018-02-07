@@ -19,7 +19,7 @@ end
 private
 
 def school_ride_params
-  params.require(:school_ride).permit(:test)
+  params.require(:school_ride).permit(:test, :kid_id, :check_in)
 end
 
 end
