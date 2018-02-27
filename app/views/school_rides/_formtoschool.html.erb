@@ -1,32 +1,18 @@
 
-<%= form_with(model: @school_ride) do |form| %>
-
-<!--< %= form_with model: @school_ride, :url => school_rides_path, :html => { :method => :post } do |form| %>-->
+<%= form_with(model: school_ride, local: true) do |form| %>
 
 
-
-<p>School ride form.</p>
-<div><p>
-  <%= form.label :check_in %><br>
-  <%= form.check_box :check_in %><br>
-  </p>
-</div>
-
-<div><p>
-  <%= form.label :test %><br>
-  <%= form.text_field :test %><br>
-  </p>
-</div>
 
 <div>
-  <!--  < %= form.hidden_field :kid_id, value: @kid.id %>-->
+  <%= form.label :check_in_time %><br>
+  <%= form.datetime_select :check_in_time %><br><br>
 </div>
 
-<div><p>
-  <%= form.label :kid %><br>
-  <%= form.collection_select :kid_id, Kid.all.order(:name), :id, :name  %><br>
-  </p>
+
+<div>
+  <%= form.hidden_field :kid_id, value: @kid.id %>
 </div>
+
 
 <p>
   <%= form.submit %>

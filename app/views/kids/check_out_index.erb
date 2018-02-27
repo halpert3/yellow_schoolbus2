@@ -1,0 +1,31 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Afternoon Check Out</h1>
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Name</th>
+        <th class="text-center">Grade</th>
+        <th class="text-right">Check out</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @kids.each do |kid| %>
+      <tr>
+        <td><%= kid.name %></td>
+        <td class="text-center"><%= kid.grade %></td>
+        <td class="text-right"><%= link_to fa_icon('check-circle'), check_out_one_kid_kid_path(kid) %></td>
+      </tr>
+
+
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>
+
+

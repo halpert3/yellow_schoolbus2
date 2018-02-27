@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206155926) do
+ActiveRecord::Schema.define(version: 20180227170649) do
 
   create_table "families", force: :cascade do |t|
     t.string "parent1_name"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20180206155926) do
   end
 
   create_table "home_rides", force: :cascade do |t|
-    t.boolean "check_out"
     t.integer "kid_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "check_out_time"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -39,11 +39,10 @@ ActiveRecord::Schema.define(version: 20180206155926) do
   end
 
   create_table "school_rides", force: :cascade do |t|
-    t.boolean "check_in"
     t.integer "kid_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "test"
+    t.datetime "check_in_time"
   end
 
 end

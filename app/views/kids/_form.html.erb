@@ -35,7 +35,8 @@ order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year'
     <%= form.label :grade %>
   </div>
   <div class="col-5">
-    <%= form.text_field :grade, id: :kid_grade %>
+<!--    < %= form.text_field :grade, id: :kid_grade %>-->
+    <%= form.select :grade, ['Pre-K', 'Kindergarten', '1', '2', '3', '4', '5', '6'], prompt: 'Grade' %>
   </div>
 
 

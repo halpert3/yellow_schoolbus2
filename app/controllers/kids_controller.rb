@@ -1,5 +1,5 @@
 class KidsController < ApplicationController
-  before_action :set_kid, only: [:show, :edit, :update, :destroy]
+  before_action :set_kid, only: [:show, :edit, :update, :destroy, :check_in_one_kid, :check_out_one_kid]
 
 
   # GET /kids
@@ -8,11 +8,29 @@ class KidsController < ApplicationController
     @kids = Kid.all
   end
 
+  def check_in_index
+    @kids = Kid.all
+  end
+
+  def check_out_index
+    @kids = Kid.all
+  end
+
   # GET /kids/1
   # GET /kids/1.json
   def show
     @family = Family.all
-#    @school_ride = SchoolRide.new
+    @school_ride = SchoolRide.new
+  end
+
+  def check_in_one_kid
+    @family = Family.all
+    @school_ride = SchoolRide.new
+  end
+
+  def check_out_one_kid
+    @family = Family.all
+    @home_ride = HomeRide.new
   end
 
   # GET /kids/new
@@ -38,7 +56,7 @@ class KidsController < ApplicationController
         format.json { render json: @kid.errors, status: :unprocessable_entity }
       end
     end
-    
+
 
   end
 

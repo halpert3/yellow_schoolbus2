@@ -1,0 +1,2 @@
+module HomeRideHelper
+end
