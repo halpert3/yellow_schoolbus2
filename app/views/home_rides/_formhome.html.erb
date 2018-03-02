@@ -5,7 +5,7 @@
 
 <div>
   <%= form.label :check_out_time %><br>
-  <%= form.datetime_select :check_out_time %><br><br>
+  <%= form.datetime_select :check_out_time, { ampm: true, default: 6.hours.ago, order: [:month, :day, :year]},{ } %><br><br>
 </div>
 
 

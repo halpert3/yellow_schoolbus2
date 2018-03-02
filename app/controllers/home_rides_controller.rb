@@ -17,7 +17,7 @@ class HomeRidesController < ApplicationController
   private
 
   def home_ride_params
-    params.require(:school_ride).permit(:kid_id, :check_out_time)
+    params.require(:home_ride).permit(:kid_id, :check_out_time)
   end
 
 end
