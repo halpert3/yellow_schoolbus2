@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_family, only: [:show, :edit, :update, :destroy, :newchild]
 
 #   GET /families

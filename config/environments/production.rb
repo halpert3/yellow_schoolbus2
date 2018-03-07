@@ -10,6 +10,9 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # TODO: Set default url for action mailer in production
+  # config.action_mailer.default_url_options = { host: 'actual host or domain' }
+  
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
